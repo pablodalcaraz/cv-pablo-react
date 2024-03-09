@@ -166,7 +166,7 @@ function App() {
                 que me permitan estar al tanto de las últimas tendencias y ofrecer
                 soluciones efectivas y escalables. Mi experiencia en proyectos
                 grupales durante mis estudios universitarios ha fortalecido mis
-                habiliNamedades de trabajo en equipo y resolución de problemas,
+                habilidades de trabajo en equipo y resolución de problemas,
                 preparándome para enfrentar desafíos en entornos profesionales.
               </p>
             </div>
