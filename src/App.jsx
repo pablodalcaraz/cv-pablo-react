@@ -23,6 +23,13 @@ function App() {
 
   const [showMenuBlock, setShowMenuBlock] = useState(false)
   const [collapseMenu, setCollapseMenu] = useState(true)
+  const [showReadMore, setShowReadMore] = useState({
+    perfil: false,
+    ubicacion:false,
+    itereses:false
+  })
+  
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,7 +46,13 @@ function App() {
   const handleClick = () => {
     setCollapseMenu(true);
   };
-
+  
+  const toggleShowReadMore = (columna) => {
+    setShowReadMore({
+      ...showReadMore,
+      [columna]: !showReadMore[columna]
+    })
+  }
   return (
     <>
       <nav className={`navbar navbar-expand-lg ${showMenuBlock ? 'showBlock' : ''}`} >
@@ -87,10 +100,10 @@ function App() {
             <p>front-end developer</p>
           </div>
           <div className="redesSociales">
-            <a href="https://www.facebook.com/nick.menta.1"><FaFacebookSquare /></a>
-            <a href="https://www.instagram.com/pablodalcaraz/" ><FaInstagramSquare /></a>
-            <a href="https://github.com/pablodalcaraz"><FaGithubSquare /></a>
-            <a href="https://www.linkedin.com/in/pablo-alcaraz-822636186/"><IoLogoLinkedin /></a>
+            <a href="https://www.facebook.com/nick.menta.1" target='-blank'><FaFacebookSquare /></a>
+            <a href="https://www.instagram.com/pablodalcaraz/"  target='-blank'><FaInstagramSquare /></a>
+            <a href="https://github.com/pablodalcaraz" target='-blank'><FaGithubSquare /></a>
+            <a href="https://www.linkedin.com/in/pablo-alcaraz-822636186/" target='-blank'><IoLogoLinkedin /></a>
           </div>
         </div>
         <div className="foto">
@@ -116,16 +129,23 @@ function App() {
                 con experiencia en el desarrollo de páginas web. Aunque carezco de
                 experiencia profesional, mi dedicación y proyectos independientes
                 en GitHub reflejan mi compromiso con la programación.
-                Anteriormente, he trabajado en roles centrados en la atención al
-                cliente y la resolución de problemas, lo que ha fortalecido mis
-                habilidades de comunicación y empatía, fundamentales en cualquier
-                entorno laboral. Me destaco por ser colaborativo, con habilidades
-                interpersonales sólidas y una fuerte determinación para alcanzar
-                metas. Estoy buscando oportunidades que me permitan aplicar mis
-                habilidades en desarrollo de software y contribuir con soluciones
-                innovadoras. Abierto a roles de prácticas o pasantías, estoy
-                emocionado por las oportunidades de crecimiento profesional que el
-                sector tecnológico ofrece.
+                {showReadMore.perfil &&(
+                  <p>Anteriormente, he trabajado en roles centrados en la atención al
+                  cliente y la resolución de problemas, lo que ha fortalecido mis
+                  habilidades de comunicación y empatía, fundamentales en cualquier
+                  entorno laboral. Me destaco por ser colaborativo, con habilidades
+                  interpersonales sólidas y una fuerte determinación para alcanzar
+                  metas. Estoy buscando oportunidades que me permitan aplicar mis
+                  habilidades en desarrollo de software y contribuir con soluciones
+                  innovadoras. Abierto a roles de prácticas o pasantías, estoy
+                  emocionado por las oportunidades de crecimiento profesional que el
+                  sector tecnológico ofrece.</p>
+                )}
+                
+
+                  <button className='leerMas' onClick={() => toggleShowReadMore('perfil')}>
+                    {showReadMore.perfil ? <b>Leer menos..</b> : <b>Leer más...</b>}
+                  </button>
               </p>
             </div>
             <div className="columna-sm">
@@ -137,19 +157,25 @@ function App() {
               <p>
                 Soy un Desarrollador Front End con Sede en San Luis,
                 capital de la provincia homónima en Argentina, es el escenario
-                donde desarrollo mi carrera como desarrollador front end. Situada
-                en las majestuosas Sierras de San Luis y con un clima templado
-                mediterráneo, esta región ofrece un entorno inspirador y tranquilo
-                para mi trabajo. Además, me estoy formando en la Universidad de La
-                Punta, donde la excelencia académica se combina con un enfoque
-                práctico en el campo de la tecnología. San Luis no solo es
-                conocida por sus hermosos paisajes naturales, sino también por su
-                creciente importancia en la industria tecnológica. En el predio de
-                la Universidad de La Punta se encuentra el PILP, un polo de
-                desarrollo tecnológico que alberga alrededor de 20 empresas de la
-                industria, proporcionando un ecosistema vibrante y colaborativo
-                para el desarrollo de proyectos innovadores.
-              </p>
+                donde desarrollo mi carrera como desarrollador.
+                {showReadMore.ubicacion && (
+                  <p>Situada
+                  en las majestuosas Sierras de San Luis y con un clima templado
+                  mediterráneo, esta región ofrece un entorno inspirador y tranquilo
+                  para mi trabajo. Además, me estoy formando en la Universidad de La
+                  Punta, donde la excelencia académica se combina con un enfoque
+                  práctico en el campo de la tecnología. San Luis no solo es
+                  conocida por sus hermosos paisajes naturales, sino también por su
+                  creciente importancia en la industria tecnológica. En el predio de
+                  la Universidad de La Punta se encuentra el PILP, un polo de
+                  desarrollo tecnológico que alberga alrededor de 20 empresas de la
+                  industria, proporcionando un ecosistema vibrante y colaborativo
+                  para el desarrollo de proyectos innovadores.</p> 
+                )} 
+                <button className='leerMas' onClick={() => toggleShowReadMore('ubicacion')}>
+                  {showReadMore.ubicacion ? <b>Leer menos...</b> : <b>Leer más...</b>}
+                </button>
+                </p>
             </div>
 
             <div className="columna-sm">
@@ -161,13 +187,19 @@ function App() {
               <p>
                 Como apasionado del desarrollo web, me impulsa la oportunidad de
                 formar parte de una industria en constante crecimiento, donde la
-                innovación es clave. Utilizo React.js en mis proyectos y estoy
-                constantemente buscando aprender nuevas tecnologías y metodologías
-                que me permitan estar al tanto de las últimas tendencias y ofrecer
-                soluciones efectivas y escalables. Mi experiencia en proyectos
-                grupales durante mis estudios universitarios ha fortalecido mis
-                habilidades de trabajo en equipo y resolución de problemas,
-                preparándome para enfrentar desafíos en entornos profesionales.
+                innovación es clave.
+                {showReadMore.itereses && (
+                   <p>Utilizo React.js en mis proyectos y estoy
+                   constantemente buscando aprender nuevas tecnologías y metodologías
+                   que me permitan estar al tanto de las últimas tendencias y ofrecer
+                   soluciones efectivas y escalables. Mi experiencia en proyectos
+                   grupales durante mis estudios universitarios ha fortalecido mis
+                   habilidades de trabajo en equipo y resolución de problemas,
+                   preparándome para enfrentar desafíos en entornos profesionales.</p>
+                )} 
+                <button className='leerMas' onClick={() => toggleShowReadMore('itereses')}>
+                  {showReadMore.itereses ? <b>Leer menos...</b> : <b>Leer más...</b>}
+                </button>
               </p>
             </div>
           </div>

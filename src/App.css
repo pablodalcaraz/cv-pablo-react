@@ -153,7 +153,7 @@ h1 {
   text-align: center;
   display: block;
   width: 310px;
-  color: #8c8c8c;
+  color: white;
   border-radius: 10px;
   box-shadow: 2px 2px 0px 0px #8c8c8c;
   padding: 5px;
@@ -180,6 +180,12 @@ h1 {
 
 .titulo-detalle {
   margin-bottom: 8px;
+}
+.leerMas{
+  color: #007bff;
+  background: none;
+  border: none;
+
 }
 /*herramientas*/
 
