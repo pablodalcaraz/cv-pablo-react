@@ -274,7 +274,7 @@ function App() {
                   <h3>Argentina Programa</h3>
                   <p>2021</p>
                   <p>
-                    Fundamentos de la programación, programación orientación
+                    Fundamentos de la programación, programación
                     orientada a objetos.
                   </p>
                 </div>
