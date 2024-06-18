@@ -3,13 +3,16 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaGithubSquare } from "react-icons/fa";
 import { IoLogoLinkedin } from "react-icons/io";
-import Foto from './images/foto.png'
+import Foto from './images/foto.png';
+import Usw from './images/UrbanStreetWear.jpg';
+import cw from './images/calcuweb.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
-import { faMobile } from '@fortawesome/free-solid-svg-icons'
 import { faMapMarker } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { faFlag } from '@fortawesome/free-solid-svg-icons'
+import { MdDarkMode } from "react-icons/md";
+import { MdLightMode } from "react-icons/md";
 import Html from './images/html.png'
 import Css from './images/css.png'
 import Js from './images/js.png'
@@ -55,6 +58,12 @@ function App() {
   }
   return (
     <>
+    <div className='cont-switch'>
+      <h2 className='switch'>
+              <MdLightMode />
+              <MdDarkMode />
+              </h2>
+              </div>
       <nav className={`navbar navbar-expand-lg ${showMenuBlock ? 'showBlock' : ''}`} >
         <div className="container-fluid">
           <button className="navbar-toggler"
@@ -85,9 +94,12 @@ function App() {
                 <a className="nav-link" href="#formacion" onClick={handleClick} >Formaciòn</a>
               </li>
               <li className="nav-item">
+                <a className="nav-link" href="#proyectos" onClick={handleClick} >Proyectos</a>
+              </li>
+              <li className="nav-item">
                 <a className="nav-link" href="#contacto" onClick={handleClick}>Contacto</a>
               </li>
-
+              
             </ul>
           </div>
         </div>
@@ -283,16 +295,25 @@ function App() {
           </div>
         </div>
       </div>
-
+      <div className='proyectos'id='proyectos' >
+        <h2 className='titulo'>Proyectos</h2>
+        <div className='proyectos-cont'>
+        <div className='proyecto'>
+        
+          <a href='https://tiendavirtual-de-pablo-alcaraz.netlify.app/' target='-blank' ><img src={Usw} alt="usw img" /><br />UrbanStreetView</a>
+          </div>
+          <div className='proyecto'>
+        
+          <a href='https://caucluladoraweb.netlify.app/' target='-blank' ><img src={cw} alt="cw img" /><br />Calcu-Web</a>
+          </div>
+          </div>
+      </div>
       <div className="contacto" id="contacto">
         <div className="seccionContacto">
           <h2 className="titulo">Contacto</h2>
 
           <div className="fila-ct">
-            <div className="columna-ct">
-              <p><FontAwesomeIcon icon={faMobile} style={{ color: '#007bff', marginRight: '10px' }} />Teléfono</p>
-              <a className="info" href="tel:+54 2665017734">2665017734</a>
-            </div>
+            
 
             <div className="columna-ct">
               <p><FontAwesomeIcon icon={faEnvelope} style={{ color: '#007bff', marginRight: '10px' }} />e-mail</p>
