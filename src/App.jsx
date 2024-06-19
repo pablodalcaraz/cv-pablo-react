@@ -21,6 +21,7 @@ import Python from './images/python.png'
 import React from './images/react.png'
 import Java from './images/java.png'
 import { useEffect, useState } from 'react';
+import ContactForm from './ContactForm ';
 
 function App() {
 
@@ -56,6 +57,8 @@ function App() {
       [columna]: !showReadMore[columna]
     })
   }
+
+  
   return (
     <>
     <div className='cont-switch'>
@@ -310,17 +313,10 @@ function App() {
       </div>
       <div className="contacto" id="contacto">
         <div className="seccionContacto">
-          <h2 className="titulo">Contacto</h2>
 
-          <div className="fila-ct">
-            
-
-            <div className="columna-ct">
-              <p><FontAwesomeIcon icon={faEnvelope} style={{ color: '#007bff', marginRight: '10px' }} />e-mail</p>
-              <a className="info" href="mailto:pablodalcaraz@gmail.com">pablodalcaraz@gmail.com</a>
-
-            </div>
-          </div>
+          <ContactForm/>
+ 
+         
           <footer id="copyright">
             Copyright&copy; 2024 - Página creada por pablodalcaraz - Todos los
             derechos reservados
